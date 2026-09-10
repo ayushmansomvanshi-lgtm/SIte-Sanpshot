@@ -610,6 +610,9 @@ setInterval(async () => {
   }
 }, 10 * 60 * 1000).unref();
 
-server.listen(port, "127.0.0.1", () => {
-  console.log(`Site Snapshotter is ready at http://localhost:${port}`);
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Site Snapshotter is ready on port ${PORT}`);
 });
