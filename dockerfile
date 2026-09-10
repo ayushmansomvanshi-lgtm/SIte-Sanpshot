@@ -6,10 +6,12 @@ COPY package*.json ./
 
 RUN npm install
 
-# Install Playwright browser inside app path
-RUN npx playwright install chromium
-
 COPY . .
+
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+
+# Install all browsers and required system dependencies
+RUN npx playwright install --with-deps
 
 EXPOSE 3000
 
