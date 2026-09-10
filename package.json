@@ -1,0 +1,17 @@
+{
+  "name": "site-snapshotter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Crawl a website, capture full-page screenshots, and download them as a ZIP folder.",
+  "type": "module",
+  "scripts": {
+    "setup": "npm install && npx playwright install chromium",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0"
+  }
+}
