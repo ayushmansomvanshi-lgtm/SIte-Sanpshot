@@ -4,6 +4,9 @@ WORKDIR /app
 
 COPY package*.json ./
 
+# Ensure Playwright downloads browsers into /ms-playwright instead of node_modules
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+
 # Ensure required system libraries for Chromium are present (fixes libglib and friends)
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
@@ -44,8 +47,6 @@ RUN apt-get update \
 RUN npm install
 
 COPY . .
-
-ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 
 # Install all browsers and required system dependencies
 RUN npx playwright install --with-deps
