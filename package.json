@@ -5,9 +5,7 @@
   "description": "Crawl a website, capture full-page screenshots, and download them as a ZIP folder.",
   "type": "module",
   "scripts": {
-    "setup": "npm install && npx playwright install chromium",
-    "start": "node server.js",
-    "postinstall": "npx playwright install --with-deps chromium"
+    "start": "node server.js"
   },
   "engines": {
     "node": ">=20"
