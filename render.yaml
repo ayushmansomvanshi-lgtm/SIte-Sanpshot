@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: site-snapshotter
+    env: docker
+    plan: starter
+    repo: https://github.com/ayushmansomvanshi-lgtm/SIte-Sanpshot.git
+    branch: main
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: "3000"
+    buildCommand: ''
+    startCommand: 'npm start'
+    healthCheckPath: '/'
+    autoDeploy: true
