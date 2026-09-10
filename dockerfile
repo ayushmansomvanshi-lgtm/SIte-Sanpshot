@@ -6,6 +6,9 @@ COPY package*.json ./
 
 RUN npm install
 
+# Install Playwright browser inside app path
+RUN npx playwright install chromium
+
 COPY . .
 
 EXPOSE 3000
