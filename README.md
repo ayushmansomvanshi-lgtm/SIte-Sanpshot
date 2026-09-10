@@ -48,3 +48,4 @@ Every capture downloads a ZIP containing:
 
 The removed Smart Selection section is no longer shown. Each device folder has clearly device-prefixed PNG filenames. The portal reports counts for Desktop, Tablet and Mobile and exposes missing-device warnings. Page-type selection is heuristic, not pixel-level visual deduplication.
 # SIte-Sanpshot
+# site-snapshotter
