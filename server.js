@@ -318,7 +318,16 @@ async function runJob(job) {
   job.workRoot = workRoot;
   job.exportDir = exportDir;
 
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+  headless: true,
+  args: [
+    "--no-sandbox",
+    "--disable-setuid-sandbox",
+    "--disable-dev-shm-usage",
+    "--disable-gpu",
+    "--no-zygote"
+  ]
+});
   const queue = [canonicalize(job.options.url)];
   const seen = new Set(queue);
   let cursor = 0;
