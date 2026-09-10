@@ -1,4 +1,4 @@
-import http from "node:http";
+import http, { Server } from "node:http";
 import fs from "node:fs";
 import fsPromises from "node:fs/promises";
 import path from "node:path";
@@ -613,6 +613,6 @@ setInterval(async () => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, "0.0.0.0", () => {
+server.listen(PORT, "0.0.0.0", () => {
     console.log(`Site Snapshotter is ready on port ${PORT}`);
 });
