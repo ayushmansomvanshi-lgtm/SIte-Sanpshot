@@ -4,7 +4,8 @@ WORKDIR /app
 
 COPY package*.json ./
 
-# Ensure Playwright downloads browsers into /ms-playwright instead of node_modules
+# Prevent Playwright from downloading browsers into node_modules (use image-provided browsers)
+ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 
 # Ensure required system libraries for Chromium are present (fixes libglib and friends)
@@ -48,8 +49,8 @@ RUN npm install
 
 COPY . .
 
-# Install all browsers and required system dependencies
-RUN npx playwright install --with-deps
+# The base Playwright image already contains browsers and required deps.
+# Keep `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1` so npm/postinstall won't try to download again.
 
 EXPOSE 3000
 
